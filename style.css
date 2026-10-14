@@ -80,3 +80,76 @@
   .letter-invite { align-items:flex-start; flex-direction:column; padding:26px 22px; gap:22px; }
   .letter-invite-button { min-width:0; width:100%; }
 }
+
+
+/* Prominent memory wall CTA card beside featured images */
+.preview-grid.with-memory-cta {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 22px;
+  align-items: stretch;
+}
+.gallery-cta-card {
+  display: flex; position: relative; min-height: 330px; flex-direction: column;
+  justify-content: center; align-items: flex-start; gap: 14px;
+  padding: 25px 21px; overflow: hidden; color: #fff8eb; background: #28291f;
+  border: 1px solid rgba(255,255,255,.22); text-decoration: none;
+  box-shadow: 0 15px 35px rgba(40,41,31,.20);
+  transform: rotate(1.5deg);
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.gallery-cta-card::before { content:""; position:absolute; inset:10px; border:1px solid rgba(245,234,216,.35); pointer-events:none; }
+.gallery-cta-card:hover, .gallery-cta-card:focus-visible {
+  background:#b85f43; transform:rotate(0) translateY(-7px);
+  box-shadow:0 20px 40px rgba(40,41,31,.27);
+}
+.gallery-cta-card:focus-visible { outline:3px solid #b85f43; outline-offset:5px; }
+.gallery-cta-spark { position:absolute; top:14px; right:17px; font-size:32px; color:#e8bd8e; }
+.gallery-cta-heart { font-size:36px; line-height:1; color:#e8a084; }
+.gallery-cta-eyebrow { font-size:8px; line-height:1.5; letter-spacing:.15em; font-weight:700; color:#e8bd8e; }
+.gallery-cta-card strong { font:500 clamp(27px,2.2vw,36px)/1.08 var(--serif); letter-spacing:-.04em; }
+.gallery-cta-card strong em { color:#e8a084; font-weight:500; }
+.gallery-cta-copy { font-size:11px; line-height:1.7; color:#e6dbc8; }
+.gallery-cta-action { display:flex; align-items:center; justify-content:space-between; gap:8px; width:100%; margin-top:5px; padding-top:12px; border-top:1px solid rgba(245,234,216,.35); font-size:8px; line-height:1.4; font-weight:700; letter-spacing:.06em; }
+.gallery-cta-action b { font-size:20px; color:#e8bd8e; }
+@media(max-width:1050px) {
+  .preview-grid.with-memory-cta { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .gallery-cta-card { min-height:270px; }
+}
+@media(max-width:800px) {
+  .preview-grid.with-memory-cta { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .gallery-cta-card { grid-column:1/-1; grid-row:1; min-height:220px; transform:none; }
+  .preview-grid.with-memory-cta .memory-card:last-child { display:block; }
+}
+@media(max-width:480px) {
+  .preview-grid.with-memory-cta { grid-template-columns:1fr; }
+  .gallery-cta-card { min-height:210px; padding:24px; }
+}
+
+/* Letter-page invitation on the memory wall */
+.letter-invite {
+  display:flex; align-items:center; justify-content:space-between; gap:32px;
+  margin:30px auto 75px; padding:38px 40px; background:#e9dcc5;
+  border:1px solid rgba(40,41,31,.12);
+}
+.letter-invite-copy { max-width:560px; }
+.letter-invite-copy .eyebrow { margin-bottom:12px; }
+.letter-invite-copy h2 { margin:0; font:500 clamp(30px,4vw,46px)/1.15 var(--serif); letter-spacing:-.04em; }
+.letter-invite-copy h2 em { color:var(--rust); }
+.letter-invite-copy p:last-child { margin:14px 0 0; color:var(--muted); font-size:13px; line-height:1.8; }
+.letter-invite-button {
+  display:flex; align-items:center; gap:14px; min-width:290px; max-width:100%;
+  padding:18px; color:#fff8eb; background:#28291f; text-decoration:none;
+  box-shadow:0 10px 22px rgba(40,41,31,.18);
+  transition:transform .25s ease,background .25s ease,box-shadow .25s ease;
+}
+.letter-invite-button:hover { background:#b85f43; transform:translateY(-4px); box-shadow:0 14px 28px rgba(40,41,31,.23); }
+.letter-invite-icon { font-size:29px; color:#e8a084; }
+.letter-invite-button>span:nth-child(2) { display:flex; flex:1; flex-direction:column; gap:6px; }
+.letter-invite-button strong { font:700 10px var(--sans); letter-spacing:.12em; }
+.letter-invite-button small { color:#dfd2bc; font:400 10px/1.5 var(--sans); }
+.letter-invite-arrow { font-size:22px; color:#e8bd8e; }
+@media(max-width:800px) {
+  .letter-invite { align-items:flex-start; flex-direction:column; padding:26px 22px; gap:22px; }
+  .letter-invite-button { min-width:0; width:100%; }
+}
