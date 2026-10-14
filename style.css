@@ -153,3 +153,57 @@
   .letter-invite { align-items:flex-start; flex-direction:column; padding:26px 22px; gap:22px; }
   .letter-invite-button { min-width:0; width:100%; }
 }
+
+
+/* Styles for the homepage memory call-to-action card */
+.preview-grid.preview-grid-with-cta { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; align-items: stretch; }
+.memory-cta-card { position:relative; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; gap:14px; min-width:0; min-height:330px; padding:25px 21px; overflow:hidden; color:#fff8eb; background:var(--ink); border:1px solid rgba(255,255,255,.22); box-shadow:0 15px 35px rgba(40,41,31,.20); transform:rotate(1.5deg); transition:transform .25s ease,background .25s ease,box-shadow .25s ease; }
+.memory-cta-card::before { content:""; position:absolute; inset:10px; border:1px solid rgba(245,234,216,.35); pointer-events:none; }
+.memory-cta-card:hover { background:var(--rust); transform:rotate(0) translateY(-7px); box-shadow:0 20px 40px rgba(40,41,31,.27); }
+.memory-cta-card>.eyebrow { color:#e8bd8e; margin:0; font-size:8px; line-height:1.5; }
+.memory-cta-card h3 { margin:0; font:500 clamp(25px,2.2vw,34px)/1.08 var(--serif); letter-spacing:-.04em; }
+.memory-cta-card h3 em { color:#e8a084; font-weight:500; }
+.memory-cta-description { margin:0; color:#e6dbc8; font-size:11px; line-height:1.7; }
+.memory-cta { display:flex; align-items:center; gap:9px; width:100%; margin-top:5px; padding-top:12px; border-top:1px solid rgba(245,234,216,.35); color:#fff8eb; text-decoration:none; }
+.cta-icon { color:#e8a084; font-size:28px; }
+.cta-text { display:flex; flex:1; flex-direction:column; gap:5px; min-width:0; }
+.cta-text strong { font:700 9px var(--sans); letter-spacing:.06em; }
+.cta-text small { color:#dfd2bc; font:400 10px/1.4 var(--sans); }
+.cta-arrow { color:#e8bd8e; font-size:22px; }
+.memory-cta-doodle { position:absolute; top:14px; right:17px; color:#e8bd8e; font-size:27px; pointer-events:none; }
+@media(max-width:1050px) { .preview-grid.preview-grid-with-cta { grid-template-columns:repeat(2,minmax(0,1fr)); } .memory-cta-card { min-height:270px; } }
+@media(max-width:800px) { .preview-grid.preview-grid-with-cta { grid-template-columns:repeat(2,minmax(0,1fr)); } .memory-cta-card { grid-column:1/-1; grid-row:1; min-height:220px; transform:none; } }
+@media(max-width:480px) { .preview-grid.preview-grid-with-cta { grid-template-columns:1fr; } .memory-cta-card { min-height:210px; padding:24px; } }
+
+/* Mobile adjustment: keep the memory invitation below the photos and highlight its button. */
+@media (max-width: 800px) {
+  .preview-grid.preview-grid-with-cta .memory-cta-card {
+    grid-row: auto;
+    order: 10;
+    margin-top: 12px;
+  }
+}
+
+.memory-cta {
+  position: relative;
+  z-index: 1;
+  border: 1px solid #e8a084;
+  border-radius: 8px;
+  padding: 13px 12px;
+  margin-top: 8px;
+  background: #b85f43;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, .16);
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.memory-cta:hover,
+.memory-cta:focus-visible {
+  background: #d27656;
+  transform: translateY(-2px);
+  box-shadow: 0 7px 0 rgba(0, 0, 0, .16);
+  outline: 2px solid #e8bd8e;
+  outline-offset: 3px;
+}
+.memory-cta .cta-icon,
+.memory-cta .cta-arrow { color: #fff1dd; }
+.memory-cta .cta-text strong { color: #fff8eb; }
+.memory-cta .cta-text small { color: #fff1dd; }
